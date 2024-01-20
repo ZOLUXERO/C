@@ -96,6 +96,18 @@ void preorder(struct tree *root) {
     if(root->right != NULL)
         preorder(root->right);
 }
+
+void inorderreversal(struct tree *root) {
+    if(treeisempty(root)) return;
+
+    if(root->right != NULL)
+        inorderreversal(root->right);
+    
+    printf("%d ", root->data);
+
+    if(root->left != NULL)
+        inorderreversal(root->left);
+}
 /* TREE */
 
 int main() {
@@ -111,4 +123,6 @@ int main() {
     printf("min: %d\n", min(root));
     printf("max: %d\n", max(root));
     preorder(root);
+    printf("\n");
+    inorderreversal(root);
 }
