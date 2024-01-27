@@ -54,7 +54,7 @@ int max(struct tree* root) {
     return max(root->right);
 }
 
-// Usa algoritmo depth-first preorder para validar si es bts o no
+// Usa algoritmo depth-first postorder para validar si es bts o no
 int checkbts(struct tree *root) {
     if(isempty(root))
         return 1;
@@ -62,6 +62,9 @@ int checkbts(struct tree *root) {
     checkbts(root->left);
     checkbts(root->right);
 
+    /* si el valor izquierdo es nulo o es menor al valor actual Y
+    *  el valor derecho es nulo o es mayor al valor actual es un 
+    *  arbol binario de busqueda */
     if((root->left == NULL || root->data > root->left->data) && 
         (root->right == NULL || root->data < root->right->data))
         return 1;
